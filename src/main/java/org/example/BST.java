@@ -119,7 +119,7 @@ public class BST<T extends Comparable<? super T>> {
                     return node.getRight();
                 } else {
                     BSTNode<T> child = new BSTNode<>(null);
-                    node.setLeft(successorHelper(node.getLeft(), child));
+                    node.setRight(successorHelper(node.getRight(), child));
                     node.setData(child.getData());
                 }
             }
@@ -138,7 +138,7 @@ public class BST<T extends Comparable<? super T>> {
 
     public T get(T data) {
         if (data == null) {
-            throw new NoSuchElementException("Data cannot be found");
+            throw new IllegalArgumentException("Data cannot be found");
         }
         return getHelper(this.root, data);
     }
